@@ -26,14 +26,14 @@ app.get(`/${config.server.base_url}/resources`, (req, res) => {
         if (cacheError) throw cacheError;
         if (!value) {
             walker.music(walker.artist(path.join(__dirname, '../static/resources/artists')),
-                (data) => {
-                    cache.set('artists', data, (error) => {
+                (resources) => {
+                    cache.set('artists', resources, (error) => {
                         if (error) throw error;
                         return res.status(200).send({
                             status: 200,
                             status_text: 'OK',
                             cache: false,
-                            data,
+                            data: resources,
                         });
                     });
                 }
