@@ -17,9 +17,14 @@ app.use(compression());
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '10mb' }));
 app.use(express.static(path.join(__dirname, '../static')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(helpers.allowCrossDomain);
 
 app.set('port', helpers.normalizePort(config.server.port));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
 
 app.get(`/${config.server.base_url}/resources`, (req, res) => {
     cache.get('artists', (cacheError, value) => {
@@ -52,12 +57,10 @@ app.get(`/${config.server.base_url}/resources`, (req, res) => {
 app.get(`/${config.server.base_url}/plays`, (req, res) => {
     if (req.query.path) {
         const stat = fs.statSync(req.query.path);
-
         res.writeHead(200, {
             'Content-Type': 'audio/mp3',
             'Content-Length': stat.size,
         });
-
         const readStream = fs.createReadStream(req.query.path);
         return readStream.pipe(res);
     }
