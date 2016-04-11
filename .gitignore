@@ -8,3 +8,4 @@ test/e2e/reports
 storage/cache/*
 .idea/
 UI.sketch
+static/resources/artists/*
