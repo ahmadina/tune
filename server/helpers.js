@@ -1,5 +1,3 @@
-import colors from 'colors';
-
 export default {
     allowCrossDomain(req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');

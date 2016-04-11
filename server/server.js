@@ -10,7 +10,7 @@ import CachemanFile from 'cacheman-file';
 import Walker from './walker';
 
 const app = express();
-const cache = new CachemanFile({ttl: 3600, tmpDir: path.join(__dirname, '../storage/cache')});
+const cache = new CachemanFile({ ttl: 3600, tmpDir: path.join(__dirname, '../storage/cache') });
 const walker = new Walker();
 
 app.use(compression());

@@ -37,7 +37,7 @@ class Walker {
                     title: album,
                     cover: `${artist.full_name}/Albums/${album}/cover.jpg`,
                     dir: `${artist.dir}/Albums/${album}`,
-                    tracks: fs.readdirSync(`${artist.dir}/Albums/${album}`).filter( (item) => {
+                    tracks: fs.readdirSync(`${artist.dir}/Albums/${album}`).filter((item) => {
                         return item !== junk.not && item.indexOf('mp3') > -1;
                     }),
                 });
