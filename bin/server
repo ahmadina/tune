@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+import server from './../server/server';
+import config from './../config';
+import colors from 'colors';
+
+const debug = require('debug')('test:server');
+
+server.listen(config.server.port);
+server.on('error', (error) => {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+
+    const bind = !(typeof port === 'string') ?
+        `Port ${config.server.port}` : `Pipe ${config.server.port}`;
+
+    if (error.code === 'EACCES') {
+        console.log(colors.red(`${bind} requires elevated privileges`));
+        process.exit(1);
+    } else if (error.code === 'EADDRINUSE') {
+        console.log(colors.red(`${bind} is already in use`));
+        process.exit(1);
+    } else {
+        throw error;
+    }
+});
+server.on('listening', () => {
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+        ? `pipe ${addr}`
+        : `port ${addr.port}`;
+    debug(`listening on ${bind}`);
+});
+
+console.log(colors.green('app started on port : '), config.server.port);
