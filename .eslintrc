@@ -1,0 +1,17 @@
+{
+    "extends": "airbnb",
+    "plugins": [
+        "html"
+    ],
+    "rules": {
+        "standard/object-curly-even-spacing": 0,
+        "indent": [
+            2,
+            4
+        ]
+    },
+    "globals": {
+        "bridge": true,
+        "chrome": true
+    }
+}
