@@ -8,6 +8,16 @@
         "indent": [
             2,
             4
+        ],
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "arrow-body-style": [
+            "error",
+            "always"
         ]
     },
     "globals": {

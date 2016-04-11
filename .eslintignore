@@ -1,3 +1,6 @@
 webpack-config/*
 **/dist/**
+**/test/**
 **/node_modules/**
+/client/services/wavesurfer.js
+config.js
