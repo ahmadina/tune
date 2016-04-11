@@ -13,5 +13,5 @@ var clientContext = require.context('../../client', true, /^\.\/(?!main(\.js)?$)
 clientContext.keys().forEach(clientContext)
 
 
-var serverContext = require.context('../../server', true, /^\.\/(?!main(\.js)?$)/)
-serverContext.keys().forEach(serverContext)
+//var serverContext = require.context('../../server', true, /^\.\/(?!main(\.js)?$)/)
+//serverContext.keys().forEach(serverContext)
