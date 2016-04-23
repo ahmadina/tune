@@ -1,8 +1,12 @@
-eslint:
-  enabled: true
-  config:
-    config: .eslintrc
+engines:
+  eslint:
+    enabled: true
+    config:
+      config: .eslintrc
 ratings:
   paths:
     - "server/**.js"
     - "client/**.js"
+exclude_paths:
+  - test/**/*
+  - "**/node_modules/**/*"
